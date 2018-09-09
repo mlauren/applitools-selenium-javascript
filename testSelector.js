@@ -51,4 +51,11 @@ if (testname === "part_5_2") {
     viewportHeight: 750
   };
 }
+console.log('Running..', testname);
+console.log('Test app URL:', testsToRun.url);
+console.log('Application name:', testsToRun.appName);
+console.log('Test page name:', testsToRun.windowName);
+console.log('Viewport width:', testsToRun.viewportWidth);
+console.log('Viewport height:', testsToRun.viewportHeight);
+
 module.exports = testsToRun;

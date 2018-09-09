@@ -11,7 +11,6 @@ var ConsoleLogHandler = SeleniumSDK.ConsoleLogHandler;
 
 //Runs different tests based on CLI input such as "part1", "part2" and so on.
 var testSelector = require("./testSelector.js");
-console.log(testSelector);
 
 // Open a Chrome browser.
 var driver = new Builder().withCapabilities(Capabilities.chrome()).build();
