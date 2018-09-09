@@ -1,7 +1,7 @@
 const testname = process.argv[2];
 
-//var baseUrl = "https://pensive-bose-78b68c.netlify.com/";
-var baseUrl = "http://localhost:8000/";
+var baseUrl = "https://pensive-bose-78b68c.netlify.com/";
+//var baseUrl = "http://localhost:8000/";
 
 //default for "part1"
 let testsToRun = {
