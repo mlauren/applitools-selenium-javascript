@@ -10,6 +10,6 @@
   "license": "ISC",
   "devDependencies": {
     "eyes.selenium": "0.0.83",
-    "selenium-webdriver": "^2.53.0 || ^3.6.0"
+    "selenium-webdriver": "^3.6.0"
   }
 }
