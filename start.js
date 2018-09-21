@@ -1,4 +1,3 @@
-require("chromedriver");
 
 var webdriver = require("selenium-webdriver");
 var Capabilities = webdriver.Capabilities;
