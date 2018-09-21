@@ -1,17 +1,17 @@
 const testname = process.argv[2];
 
 //var baseUrl = "https://pensive-bose-78b68c.netlify.com/";
-var baseUrl = "http://localhost:8000/";
+var baseUrl = "file:///Users/raja.rao/apps/acme-demo-app/";
 
 //default for "part1"
 let testsToRun = {
-  url: baseUrl,
+  url: baseUrl + "index.html",
   appName: "Demo app",
   windowName: "Login Page",
   testName: "Login Page",
   goto2ndPage: false,
   viewportWidth: 1200,
-  viewportHeight: 600
+  viewportHeight: 700
 };
 
 if (testname === "part2") {
@@ -22,7 +22,7 @@ if (testname === "part2") {
     testName: "Login Page",
     goto2ndPage: false,
     viewportWidth: 1200,
-    viewportHeight: 600
+    viewportHeight: 700
   };
 }
 
@@ -35,7 +35,7 @@ if (testname === "part_5_1") {
     testName: "Main app page test",
     goto2ndPage: false,
     viewportWidth: 1200,
-    viewportHeight: 600
+    viewportHeight: 700
   };
 }
 
@@ -48,7 +48,7 @@ if (testname === "part_5_2") {
     testName: "Main app page test",
     goto2ndPage: false,
     viewportWidth: 1200,
-    viewportHeight: 600
+    viewportHeight: 700
   };
 }
 if (
