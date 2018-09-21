@@ -1,7 +1,7 @@
 const testname = process.argv[2];
 
-var baseUrl = "https://pensive-bose-78b68c.netlify.com/";
-//var baseUrl = "http://localhost:8000/";
+//var baseUrl = "https://pensive-bose-78b68c.netlify.com/";
+var baseUrl = "http://localhost:8000/";
 
 //default for "part1"
 let testsToRun = {
@@ -11,7 +11,7 @@ let testsToRun = {
   testName: "Login Page",
   goto2ndPage: false,
   viewportWidth: 1200,
-  viewportHeight: 750
+  viewportHeight: 600
 };
 
 if (testname === "part2") {
@@ -22,7 +22,7 @@ if (testname === "part2") {
     testName: "Login Page",
     goto2ndPage: false,
     viewportWidth: 1200,
-    viewportHeight: 750
+    viewportHeight: 600
   };
 }
 
@@ -34,8 +34,8 @@ if (testname === "part_5_1") {
     windowName: "Main app page",
     testName: "Main app page test",
     goto2ndPage: false,
-    viewportWidth: 1400,
-    viewportHeight: 750
+    viewportWidth: 1200,
+    viewportHeight: 600
   };
 }
 
@@ -47,15 +47,26 @@ if (testname === "part_5_2") {
     windowName: "Main app page",
     testName: "Main app page test",
     goto2ndPage: false,
-    viewportWidth: 1400,
-    viewportHeight: 750
+    viewportWidth: 1200,
+    viewportHeight: 600
   };
 }
-console.log('Running..', testname);
-console.log('Test app URL:', testsToRun.url);
-console.log('Application name:', testsToRun.appName);
-console.log('Test page name:', testsToRun.windowName);
-console.log('Viewport width:', testsToRun.viewportWidth);
-console.log('Viewport height:', testsToRun.viewportHeight);
+if (
+  testname !== "part1" &&
+  testname !== "part2" &&
+  testname !== "part_5_1" &&
+  testname !== "part_5_2"
+) {
+  console.log(
+    "Invalid test part name. Valid part names are: 'part1', 'part2', 'part_5_1', 'part_5_2'"
+  );
+  process.exit(0);
+}
+console.log("Running..", testname);
+console.log("Test app URL:", testsToRun.url);
+console.log("Application name:", testsToRun.appName);
+console.log("Test page name:", testsToRun.windowName);
+console.log("Viewport width:", testsToRun.viewportWidth);
+console.log("Viewport height:", testsToRun.viewportHeight);
 
 module.exports = testsToRun;
