@@ -40,7 +40,7 @@ if (!process.env.APPLITOOLS_API_KEY) {
 
 
 try {
-  // Start the test and set the browser's viewport size to 800x600.
+  // Start the test and set the browser's viewport size.
   eyes.open(driver, testSelector.appName, testSelector.testName, {
     width: testSelector.viewportWidth,
     height: testSelector.viewportHeight
@@ -51,15 +51,6 @@ try {
 
   // Visual checkpoint #1.
   eyes.checkWindow(testSelector.windowName);
-
-  //Only go to the main app page if the test/tutorial needs it
-  if (testSelector.goto2ndPage) {
-    // Click the "Click me!" button.
-    driver.findElement(By.id("log-in")).click();
-
-    // Visual checkpoint #2.
-    eyes.checkWindow("Click!");
-  }
 
   // End the test.
   eyes.close(false);
