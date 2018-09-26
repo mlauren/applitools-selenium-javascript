@@ -1,4 +1,3 @@
-require("chromedriver");
 
 var webdriver = require("selenium-webdriver");
 var Capabilities = webdriver.Capabilities;
@@ -7,7 +6,6 @@ var By = webdriver.By;
 
 var SeleniumSDK = require("eyes.selenium");
 var Eyes = SeleniumSDK.Eyes;
-var ConsoleLogHandler = SeleniumSDK.ConsoleLogHandler;
 
 //Runs different tests based on CLI input such as "part1", "part2" and so on.
 var testSelector = require("./testSelector.js");
@@ -21,7 +19,7 @@ var eyes = new Eyes();
 //⚠️️️  Please set the APPLITOOLS_API_KEY environment variable
 //on Mac: export APPLITOOLS_API_KEY='YOUR_API_KEY'
 //on windows: set APPLITOOLS_API_KEY='YOUR_API_KEY'
-//Note: You can get your API key by logging into Applitools | Click on the person icon (top-right corner) | Click on the "My API key" menu
+//Note: You can get your API key by logging into Applitools | Click on the Person icon (top-right corner) | Click on the "My API key" menu
 eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
 
 //scroll the entire page
@@ -40,10 +38,9 @@ if (!process.env.APPLITOOLS_API_KEY) {
   process.exit(0);
 }
 
-//eyes.setLogHandler(new ConsoleLogHandler(false));
 
 try {
-  // Start the test and set the browser's viewport size to 800x600.
+  // Start the test and set the browser's viewport size.
   eyes.open(driver, testSelector.appName, testSelector.testName, {
     width: testSelector.viewportWidth,
     height: testSelector.viewportHeight
@@ -54,15 +51,6 @@ try {
 
   // Visual checkpoint #1.
   eyes.checkWindow(testSelector.windowName);
-
-  //Only go to the main app page if the test/tutorial needs it
-  if (testSelector.goto2ndPage) {
-    // Click the "Click me!" button.
-    driver.findElement(By.id("log-in")).click();
-
-    // Visual checkpoint #2.
-    eyes.checkWindow("Click!");
-  }
 
   // End the test.
   eyes.close(false);
