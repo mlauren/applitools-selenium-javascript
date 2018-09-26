@@ -1,7 +1,7 @@
 const testname = process.argv[2];
 
-//var baseUrl = "https://pensive-bose-78b68c.netlify.com/";
-var baseUrl = "file:///Users/raja.rao/apps/acme-demo-app/";
+var baseUrl = "https://demo.applitools.com/";
+//var baseUrl = "file:///Users/raja.rao/apps/acme-demo-app/";
 
 //default for "part1"
 let testsToRun = {
