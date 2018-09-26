@@ -1,12 +1,12 @@
 {
-  "name": "applitools-selenium-js-quick-start",
+  "name": "tutorial-selenium-javascript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "node start.js"
   },
-  "author": "",
+  "author": "Raja Rao DV",
   "license": "ISC",
   "devDependencies": {
     "eyes.selenium": "0.0.83",
