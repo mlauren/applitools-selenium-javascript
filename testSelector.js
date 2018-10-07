@@ -27,7 +27,7 @@ if (testname === "part2") {
 }
 
 //create baseline for the app.html
-if (testname === "part_5_1") {
+if (testname === "part3") {
   testsToRun = {
     url: baseUrl + "app.html",
     appName: "Demo app",
@@ -40,7 +40,7 @@ if (testname === "part_5_1") {
 }
 
 //Run tests on version 2 of the app(app_v2.html)
-if (testname === "part_5_2") {
+if (testname === "part3") {
   testsToRun = {
     url: baseUrl + "app_v2.html",
     appName: "Demo app",
