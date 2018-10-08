@@ -40,7 +40,7 @@ if (testname === "part3") {
 }
 
 //Run tests on version 2 of the app(app_v2.html)
-if (testname === "part3") {
+if (testname === "part4") {
   testsToRun = {
     url: baseUrl + "app_v2.html",
     appName: "Demo app",
