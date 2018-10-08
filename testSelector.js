@@ -54,11 +54,11 @@ if (testname === "part3") {
 if (
   testname !== "part1" &&
   testname !== "part2" &&
-  testname !== "part_5_1" &&
-  testname !== "part_5_2"
+  testname !== "part3" &&
+  testname !== "part4"
 ) {
   console.log(
-    "Invalid test part name. Valid part names are: 'part1', 'part2', 'part_5_1', 'part_5_2'"
+    "Invalid test part name. Valid part names are: 'part1', 'part2', 'part3', 'part4'"
   );
   process.exit(0);
 }
