@@ -7,6 +7,8 @@ var By = webdriver.By;
 var SeleniumSDK = require("eyes.selenium");
 var Eyes = SeleniumSDK.Eyes;
 
+const testname = process.argv[2];
+
 //Runs different tests based on CLI input such as "part1", "part2" and so on.
 var testSelector = require("./testSelector.js");
 
@@ -15,6 +17,8 @@ var driver = new Builder().withCapabilities(Capabilities.chrome()).build();
 
 // Initialize the eyes SDK and set your private API key.
 var eyes = new Eyes();
+
+eyes.setServerUrl("https://kpeyes.applitools.com")
 
 //⚠️️️  Please set the APPLITOOLS_API_KEY environment variable
 //on Mac: export APPLITOOLS_API_KEY='YOUR_API_KEY'
@@ -40,6 +44,11 @@ if (!process.env.APPLITOOLS_API_KEY) {
 
 
 try {
+
+  eyes.setSaveFailedTests(true);
+
+  eyes.setScaleRatio(2.0);
+
   // Start the test and set the browser's viewport size.
   eyes.open(driver, testSelector.appName, testSelector.testName, {
     width: testSelector.viewportWidth,
@@ -47,13 +56,33 @@ try {
   });
 
   // Navigate the browser to the "hello world!" web-site.
-  driver.get(testSelector.url);
+  driver.get(testSelector.baseUrl);
 
+  if (testname === "part1") {
+    driver.findElement(By.css("#singlePickerTrigger-0")).click();
+  }  
   // Visual checkpoint #1.
   eyes.checkWindow(testSelector.windowName);
 
   // End the test.
   eyes.close(false);
+
+  eyes.setSaveFailedTests(false);
+
+  eyes.open(driver, testSelector.appName, testSelector.testName, {
+    width: testSelector.viewportWidth,
+    height: testSelector.viewportHeight
+  });
+
+  driver.get(testSelector.url);
+
+  if (testname === "part1") {
+    driver.findElement(By.css("#singlePickerTrigger-0")).click();
+  }
+  // Visual checkpoint #2.
+  eyes.checkWindow(testSelector.windowName);
+  eyes.close();
+
 } finally {
   // Close the browser.
   driver.quit();
