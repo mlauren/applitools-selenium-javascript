@@ -7,7 +7,7 @@ var By = webdriver.By;
 var SeleniumSDK = require("eyes.selenium");
 var Eyes = SeleniumSDK.Eyes;
 
-const testname = process.argv[2];
+const inputTestName = process.argv[2];
 
 //Runs different tests based on CLI input such as "part1", "part2" and so on.
 var testSelector = require("./testSelector.js");
@@ -58,7 +58,7 @@ try {
   // Navigate the browser to the "hello world!" web-site.
   driver.get(testSelector.baseUrl);
 
-  if (testname === "part1") {
+  if (inputTestName === "datepicker") {
     driver.findElement(By.css("#singlePickerTrigger-0")).click();
   }  
   // Visual checkpoint #1.
@@ -76,7 +76,7 @@ try {
 
   driver.get(testSelector.url);
 
-  if (testname === "part1") {
+  if (inputTestName === "datepicker") {
     driver.findElement(By.css("#singlePickerTrigger-0")).click();
   }
   // Visual checkpoint #2.

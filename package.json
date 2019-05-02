@@ -1,13 +1,11 @@
 {
-  "name": "tutorial-selenium-javascript",
+  "name": "applitools-selenium-javascript",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "start.js",
   "scripts": {
     "test": "node start.js"
   },
-  "author": "Raja Rao DV",
-  "license": "ISC",
   "devDependencies": {
     "eyes.selenium": "0.0.83",
     "selenium-webdriver": "^3.6.0"
