@@ -58,9 +58,9 @@ try {
   // Navigate the browser to the "hello world!" web-site.
   driver.get(testSelector.baseUrl);
 
-  // if (testname === "part1") {
-  //   driver.findElement(By.css("#singlePickerTrigger-0")).click();
-  // }  
+  if (inputTestName === "datepicker") {
+    driver.findElement(By.css("#singlePickerTrigger-0")).click();
+  }  
   // Visual checkpoint #1.
   eyes.checkWindow(testSelector.windowName);
 
