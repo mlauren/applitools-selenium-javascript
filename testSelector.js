@@ -1,10 +1,9 @@
-const processTestName = process.argv[2];
-
-var patternLibraryTests = require('./test/pattern-library');
-var styleGuideTests = require('./test/style-guide');
-var customTests = require('./test/custom');
-
+const patternLibraryTests = require('./test/pattern-library');
+const styleGuideTests = require('./test/style-guide');
+const customTests = require('./test/custom');
 const totalTests = patternLibraryTests.concat(styleGuideTests, customTests);
+
+const processTestName = process.argv[2];
 
 if (!processTestName) {
   console.log(
