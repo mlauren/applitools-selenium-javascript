@@ -47,21 +47,23 @@ try {
 
   eyes.setSaveFailedTests(true);
 
-  eyes.setScaleRatio(2.0);
+  // eyes.setScaleRatio(2.0);
 
-  // Start the test and set the browser's viewport size.
+  // Start the test and set the browser's viewport size
   eyes.open(driver, testSelector.appName, testSelector.testName, {
     width: testSelector.viewportWidth,
     height: testSelector.viewportHeight
   });
 
-  // Navigate the browser to the "hello world!" web-site.
+  // Navigate the browser to the base url
   driver.get(testSelector.baseUrl);
 
-  if (inputTestName === "datepicker") {
-    driver.findElement(By.css("#singlePickerTrigger-0")).click();
-  }  
-  // Visual checkpoint #1.
+  // optional click events based on test name
+  // if (inputTestName === "datepicker") {
+  //   driver.findElement(By.css("#singlePickerTrigger-0")).click();
+  // }  
+  
+  // Visual checkpoint #1
   eyes.checkWindow(testSelector.windowName);
 
   // End the test.
@@ -69,24 +71,28 @@ try {
 
   eyes.setSaveFailedTests(false);
 
+  // Start the test and set the browser's viewport size
   eyes.open(driver, testSelector.appName, testSelector.testName, {
     width: testSelector.viewportWidth,
     height: testSelector.viewportHeight
   });
 
+  // Navigate the browser to the test url
   driver.get(testSelector.url);
 
-  if (inputTestName === "datepicker") {
-    driver.findElement(By.css("#singlePickerTrigger-0")).click();
-  }
-  // Visual checkpoint #2.
+  // optional click events based on test name
+  // if (inputTestName === "datepicker") {
+  //   driver.findElement(By.css("#singlePickerTrigger-0")).click();
+  // } 
+
+  // Visual checkpoint #2
   eyes.checkWindow(testSelector.windowName);
   eyes.close();
 
 } finally {
-  // Close the browser.
+  // Close the browser
   driver.quit();
 
-  // If the test was aborted before eyes.close was called ends the test as aborted.
+  // If the test was aborted before eyes.close was called ends the test as aborted
   eyes.abortIfNotClosed();
 }
