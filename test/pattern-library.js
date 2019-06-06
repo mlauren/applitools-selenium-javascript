@@ -1,7 +1,7 @@
 // shared variables
 const groupAppName = 'Pattern Library';
 const baseUrlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/'; // your baseline url
-const urlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/david-dev/demos/'; // your custom test url
+const urlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/patterns-library/demos/'; // your custom test url
 
 // pattern test IDs
 const testIds = [
@@ -45,6 +45,8 @@ const standardNamingFormat = testIds.map(function(id) {
     baseUrl: baseUrlPrefix + id + '-demo.html',
     url: urlPrefix + id + '-demo.html',
     appName: groupAppName,
+    viewportWidth: 1300,
+    viewportHeight: 800
   }
   return testData;
 });

@@ -1,14 +1,14 @@
 const groupAppName = 'Custom Tests';
-const baseUrlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/'; // your baseline url
-const urlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/david-dev/demos/'; // your custom test url
+const baseUrlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/styleguide/button1.html'; // your baseline url
+const urlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/styleguide/button2.html'; // your custom test url
 
 // add your custom tests here
 const customNamingFormat = [
   {
-    testId: 'custom-example-1',
-    patternName: 'Custom: Example 1',
-    baseUrl: baseUrlPrefix + 'custom-example-1.html',
-    url: urlPrefix + 'custom-example-1.html',
+    testId: 'buttons-ux',
+    patternName: 'Buttons UX',
+    baseUrl: baseUrlPrefix,
+    url: urlPrefix,
     appName: groupAppName,
   }
 ];
