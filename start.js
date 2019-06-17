@@ -60,7 +60,7 @@ try {
     height: testSelector.viewportHeight
   });
 
-  // Navigate the browser to the "hello world!" web-site.
+  // Navigate the browser to the base url
   driver.get(testSelector.baseUrl);
 
   // driver.findElement(By.css("#singlePickerTrigger-0")).click();
@@ -93,11 +93,13 @@ try {
 
   eyes.setSaveFailedTests(false);
 
+  // Start the test and set the browser's viewport size
   eyes.open(driver, testSelector.appName, testSelector.testName, {
     width: testSelector.viewportWidth,
     height: testSelector.viewportHeight
   });
 
+  // Navigate the browser to the test url
   driver.get(testSelector.url);
 
   if (processTestName === "custom-datepicker") {
@@ -126,9 +128,9 @@ try {
   eyes.close();
 
 } finally {
-  // Close the browser.
+  // Close the browser
   driver.quit();
 
-  // If the test was aborted before eyes.close was called ends the test as aborted.
+  // If the test was aborted before eyes.close was called ends the test as aborted
   eyes.abortIfNotClosed();
 }
