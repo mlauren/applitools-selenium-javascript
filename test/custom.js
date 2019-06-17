@@ -39,6 +39,17 @@ const customNamingFormat = [
     appName: groupAppName,
     viewportWidth: 1000,
     viewportHeight: 800
+  },
+  {
+    testId: 'datepicker-check-icons',
+    patternName: 'Datepicker Check Icons',
+    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/datepicker-pattern-3.0',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/datepicker-pattern',
+    appName: groupAppName,
+    viewportWidth: 1000,
+    viewportHeight: 800,
+    singleElement: true,
+    checkSelector: "#singlePickerTrigger-0"
   }
 ];
 

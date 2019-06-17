@@ -3,7 +3,6 @@ var webdriver = require("selenium-webdriver");
 var Capabilities = webdriver.Capabilities;
 var Builder = webdriver.Builder;
 var By = webdriver.By;
-var Actions = webdriver.Actions;
 
 var SeleniumSDK = require("eyes.selenium");
 var Eyes = SeleniumSDK.Eyes;
@@ -52,16 +51,15 @@ try {
 
   eyes.setSaveFailedTests(true);
 
-  eyes.setScaleRatio(2.0);
+  // eyes.setScaleRatio(2.0);
+
   // Eyes.StitchMode = StitchModes.CSS;
-  
   // Start the test and set the browser's viewport size.
   eyes.open(driver, testSelector.appName, testSelector.testName, {
     width: testSelector.viewportWidth,
     height: testSelector.viewportHeight
   });
 
-  
   // Navigate the browser to the "hello world!" web-site.
   driver.get(testSelector.baseUrl);
 
@@ -72,19 +70,23 @@ try {
   if (processTestName === "modal-icons") {
     driver.findElement(By.css("[data-modal-trigger='custom-modal']")).click();
   }
-  if (processTestName == "datepicker-hover-state") {
+  if (processTestName === "datepicker-hover-state") {
     driver.findElement(By.css("#singlePickerTrigger-0")).click();
     //Mouseover on an element
     driver.findElement(By.css(".calendars:first-of-type .day.disabled:first-of-type"))
       .then(function(elem) {
         driver.actions().mouseMove(elem).perform();
         driver.sleep(5000);
-      });  
+      });
   }
-  // Visual checkpoint #1.
-  eyes.checkWindow(testSelector.windowName);
-  // eyes.checkElement(Target.region(driver.findElement(By.css("#singlePickerTrigger-0"))), 100, "datepicker-1");
-  // eyes.check("name", Target.region(By.css("#singlePickerTrigger-0"), null));
+  if (testSelector.singleElement) {
+    if (testSelector.checkSelector) {
+      eyes.check("name", Target.region(By.css(testSelector.checkSelector), null));
+    }
+  } else {
+    eyes.checkWindow(testSelector.windowName);
+  }
+
 
   // End the test.
   eyes.close(false);
@@ -104,20 +106,22 @@ try {
   if (processTestName === "modal-icons") {
     driver.findElement(By.css("[data-modal-trigger='custom-modal']")).click();
   }
-  if (processTestName == "datepicker-hover-state") {
+  if (processTestName === "datepicker-hover-state") {
     driver.findElement(By.css("#singlePickerTrigger-0")).click();
     //Mouseover on an element
     driver.findElement(By.css(".calendars:first-of-type .day.disabled:first-of-type"))
       .then(function(elem) {
         driver.actions().mouseMove(elem).perform();
         driver.sleep(5000);
-      });  
+      });
   }
-  // Visual checkpoint #2.
-  eyes.checkWindow(testSelector.windowName);
-  //eyes.checkElement(Target.region(driver.findElement(By.css("#singlePickerTrigger-0"))), 100, "datepicker-2");
-
-  // eyes.check("name", Target.region(By.css("#singlePickerTrigger-0"), null));
+  if (testSelector.singleElement) {
+    if (testSelector.checkSelector) {
+      eyes.check("name", Target.region(By.css(testSelector.checkSelector), null));
+    }
+  } else {
+    eyes.checkWindow(testSelector.windowName);
+  }
 
   eyes.close();
 
