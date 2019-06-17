@@ -1,7 +1,7 @@
 // shared variables
 const groupAppName = 'Pattern Library';
 const baseUrlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/'; // your baseline url
-const urlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/david-dev/demos/';
+const urlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/david-dev/demos/'; // your custom test url
 
 // pattern test IDs
 const testIds = [
