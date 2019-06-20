@@ -6,8 +6,7 @@ var By = webdriver.By;
 
 var SeleniumSDK = require("eyes.selenium");
 var Eyes = SeleniumSDK.Eyes;
-
-const inputTestName = process.argv[2];
+var Target = SeleniumSDK.Target;
 
 //Runs different tests based on CLI input such as "part1", "part2" and so on.
 var testSelector = require("./testSelector.js");
@@ -17,6 +16,11 @@ var driver = new Builder().withCapabilities(Capabilities.chrome()).build();
 
 // Initialize the eyes SDK and set your private API key.
 var eyes = new Eyes();
+
+var ConsoleLogHandler = require('eyes.selenium').ConsoleLogHandler;
+eyes.setLogHandler(new ConsoleLogHandler(true));
+
+var processTestName = process.argv[2];
 
 eyes.setServerUrl("https://kpeyes.applitools.com")
 
@@ -49,7 +53,8 @@ try {
 
   // eyes.setScaleRatio(2.0);
 
-  // Start the test and set the browser's viewport size
+  // Eyes.StitchMode = StitchModes.CSS;
+  // Start the test and set the browser's viewport size.
   eyes.open(driver, testSelector.appName, testSelector.testName, {
     width: testSelector.viewportWidth,
     height: testSelector.viewportHeight
@@ -58,13 +63,30 @@ try {
   // Navigate the browser to the base url
   driver.get(testSelector.baseUrl);
 
-  // optional click events based on test name
-  // if (inputTestName === "datepicker") {
-  //   driver.findElement(By.css("#singlePickerTrigger-0")).click();
-  // }  
-  
-  // Visual checkpoint #1
-  eyes.checkWindow(testSelector.windowName);
+  // driver.findElement(By.css("#singlePickerTrigger-0")).click();
+  if (processTestName === "custom-datepicker") {
+    driver.findElement(By.css("#singlePickerTrigger-0")).click();
+  }
+  if (processTestName === "modal-icons") {
+    driver.findElement(By.css("[data-modal-trigger='custom-modal']")).click();
+  }
+  if (processTestName === "datepicker-hover-state") {
+    driver.findElement(By.css("#singlePickerTrigger-0")).click();
+    //Mouseover on an element
+    driver.findElement(By.css(".calendars:first-of-type .day.disabled:first-of-type"))
+      .then(function(elem) {
+        driver.actions().mouseMove(elem).perform();
+        driver.sleep(5000);
+      });
+  }
+  if (testSelector.singleElement) {
+    if (testSelector.checkSelector) {
+      eyes.check("name", Target.region(By.css(testSelector.checkSelector), null));
+    }
+  } else {
+    eyes.checkWindow(testSelector.windowName);
+  }
+
 
   // End the test.
   eyes.close(false);
@@ -80,13 +102,29 @@ try {
   // Navigate the browser to the test url
   driver.get(testSelector.url);
 
-  // optional click events based on test name
-  // if (inputTestName === "datepicker") {
-  //   driver.findElement(By.css("#singlePickerTrigger-0")).click();
-  // } 
+  if (processTestName === "custom-datepicker") {
+    driver.findElement(By.css("#singlePickerTrigger-0")).click();
+  }
+  if (processTestName === "modal-icons") {
+    driver.findElement(By.css("[data-modal-trigger='custom-modal']")).click();
+  }
+  if (processTestName === "datepicker-hover-state") {
+    driver.findElement(By.css("#singlePickerTrigger-0")).click();
+    //Mouseover on an element
+    driver.findElement(By.css(".calendars:first-of-type .day.disabled:first-of-type"))
+      .then(function(elem) {
+        driver.actions().mouseMove(elem).perform();
+        driver.sleep(5000);
+      });
+  }
+  if (testSelector.singleElement) {
+    if (testSelector.checkSelector) {
+      eyes.check("name", Target.region(By.css(testSelector.checkSelector), null));
+    }
+  } else {
+    eyes.checkWindow(testSelector.windowName);
+  }
 
-  // Visual checkpoint #2
-  eyes.checkWindow(testSelector.windowName);
   eyes.close();
 
 } finally {
