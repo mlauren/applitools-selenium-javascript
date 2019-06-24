@@ -46,12 +46,13 @@ if (!process.env.APPLITOOLS_API_KEY) {
   process.exit(0);
 }
 
-
 try {
 
   eyes.setSaveFailedTests(true);
 
-  // eyes.setScaleRatio(2.0);
+  if (!testSelector.singleElement) {
+    eyes.setScaleRatio(2.0);
+  }
 
   // Eyes.StitchMode = StitchModes.CSS;
   // Start the test and set the browser's viewport size.
@@ -63,22 +64,18 @@ try {
   // Navigate the browser to the base url
   driver.get(testSelector.baseUrl);
 
-  // driver.findElement(By.css("#singlePickerTrigger-0")).click();
-  if (processTestName === "custom-datepicker") {
-    driver.findElement(By.css("#singlePickerTrigger-0")).click();
+  if (testSelector.clickElement) {
+    driver.findElement(By.css(testSelector.clickElement)).click();
   }
-  if (processTestName === "modal-icons") {
-    driver.findElement(By.css("[data-modal-trigger='custom-modal']")).click();
+  //Mouseover on an element
+  if (testSelector.hoverElement) {
+    driver.findElement(By.css(testSelector.hoverElement))
+    .then(function(elem) {
+      driver.actions().mouseMove(elem).perform();
+      driver.sleep(5000);
+    });
   }
-  if (processTestName === "datepicker-hover-state") {
-    driver.findElement(By.css("#singlePickerTrigger-0")).click();
-    //Mouseover on an element
-    driver.findElement(By.css(".calendars:first-of-type .day.disabled:first-of-type"))
-      .then(function(elem) {
-        driver.actions().mouseMove(elem).perform();
-        driver.sleep(5000);
-      });
-  }
+
   if (testSelector.singleElement) {
     if (testSelector.checkSelector) {
       eyes.check("name", Target.region(By.css(testSelector.checkSelector), null));
@@ -102,21 +99,18 @@ try {
   // Navigate the browser to the test url
   driver.get(testSelector.url);
 
-  if (processTestName === "custom-datepicker") {
-    driver.findElement(By.css("#singlePickerTrigger-0")).click();
+  if (testSelector.clickElement) {
+    driver.findElement(By.css(testSelector.clickElement)).click();
   }
-  if (processTestName === "modal-icons") {
-    driver.findElement(By.css("[data-modal-trigger='custom-modal']")).click();
+  //Mouseover on an element
+  if (testSelector.hoverElement) {
+    driver.findElement(By.css(testSelector.hoverElement))
+    .then(function(elem) {
+      driver.actions().mouseMove(elem).perform();
+      driver.sleep(5000);
+    });
   }
-  if (processTestName === "datepicker-hover-state") {
-    driver.findElement(By.css("#singlePickerTrigger-0")).click();
-    //Mouseover on an element
-    driver.findElement(By.css(".calendars:first-of-type .day.disabled:first-of-type"))
-      .then(function(elem) {
-        driver.actions().mouseMove(elem).perform();
-        driver.sleep(5000);
-      });
-  }
+
   if (testSelector.singleElement) {
     if (testSelector.checkSelector) {
       eyes.check("name", Target.region(By.css(testSelector.checkSelector), null));
