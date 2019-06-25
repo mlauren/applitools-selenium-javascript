@@ -28,6 +28,8 @@ const customNamingFormat = [
     baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/datepicker-pattern-3.0',
     url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/datepicker-pattern',
     appName: groupAppName,
+    clickElement: "#singlePickerTrigger-0",
+    hoverElement: ".calendars:first-of-type .day.disabled:first-of-type",
     viewportWidth: 1000,
     viewportHeight: 800
   },

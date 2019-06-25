@@ -24,7 +24,9 @@ totalTests.forEach(function(test) {
         testName: test.patternName,
         goto2ndPage: test.goto2ndPage || false,
         viewportWidth: test.viewportWidth || 1200,
-        viewportHeight: test.viewportHeight || 700
+        viewportHeight: test.viewportHeight || 700,
+        hoverElement: test.hoverElement,
+        clickElement: test.clickElement
       };
       console.log('**********************************************');
       console.log('RUNNING...', processTestName);
@@ -33,6 +35,10 @@ totalTests.forEach(function(test) {
       console.log('TEST PAGE NAME:', testsToRun.windowName);
       console.log('VIEWPORT WIDTH:', testsToRun.viewportWidth);
       console.log('VIEWPORT HEIGHT:', testsToRun.viewportHeight);
+      console.log('CLICK ELEMENT:', testsToRun.clickElement);
+      console.log('HOVER ELEMENT:', testsToRun.hoverElement);
+
+
       console.log('**********************************************');
       module.exports = testsToRun;
     }
