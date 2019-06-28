@@ -1,12 +1,8 @@
 
-var webdriver = require("selenium-webdriver");
-var Capabilities = webdriver.Capabilities;
-var Builder = webdriver.Builder;
-var By = webdriver.By;
+const { Builder, Capabilities, By } = require('selenium-webdriver');
 
-var SeleniumSDK = require("eyes.selenium");
-var Eyes = SeleniumSDK.Eyes;
-var Target = SeleniumSDK.Target;
+const { Eyes, Target, ConsoleLogHandler } = require('@applitools/eyes-selenium'); // should be replaced to ''
+
 
 //Runs different tests based on CLI input such as "part1", "part2" and so on.
 var testSelector = require("./testSelector.js");
@@ -17,10 +13,8 @@ var driver = new Builder().withCapabilities(Capabilities.chrome()).build();
 // Initialize the eyes SDK and set your private API key.
 var eyes = new Eyes();
 
-var ConsoleLogHandler = require('eyes.selenium').ConsoleLogHandler;
 eyes.setLogHandler(new ConsoleLogHandler(true));
 
-var processTestName = process.argv[2];
 
 eyes.setServerUrl("https://kpeyes.applitools.com")
 
@@ -83,7 +77,6 @@ try {
   } else {
     eyes.checkWindow(testSelector.windowName);
   }
-
 
   // End the test.
   eyes.close(false);
