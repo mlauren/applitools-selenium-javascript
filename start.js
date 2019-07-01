@@ -63,6 +63,9 @@ try {
 
   // Navigate the browser to the base url
   driver.get(testSelector.baseUrl);
+  driver.findElement(By.id('username')).sendKeys("");//enter your username
+  driver.findElement(By.id('password')).sendKeys("");// enter your password
+  driver.findElement(By.id('submit-button')).click();
 
   if (testSelector.clickElement) {
     driver.findElement(By.css(testSelector.clickElement)).click();

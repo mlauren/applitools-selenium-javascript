@@ -24,7 +24,7 @@ totalTests.forEach(function(test) {
         testName: test.patternName,
         goto2ndPage: test.goto2ndPage || false,
         viewportWidth: test.viewportWidth || 1200,
-        viewportHeight: test.viewportHeight || 700,
+        viewportHeight: test.viewportHeight || 600,
         hoverElement: test.hoverElement,
         clickElement: test.clickElement
       };
