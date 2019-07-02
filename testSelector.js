@@ -25,8 +25,11 @@ totalTests.forEach(function(test) {
         goto2ndPage: test.goto2ndPage || false,
         viewportWidth: test.viewportWidth || 1200,
         viewportHeight: test.viewportHeight || 600,
-        hoverElement: test.hoverElement,
-        clickElement: test.clickElement
+        hoverElement: test.hoverElement || false,
+        clickElement: test.clickElement || false,
+        singleElement : test.singleElement || false,
+        checkSelector: test.checkSelector || false,
+        keys:["admin", "admin"]
       };
       console.log('**********************************************');
       console.log('RUNNING...', processTestName);
@@ -37,6 +40,8 @@ totalTests.forEach(function(test) {
       console.log('VIEWPORT HEIGHT:', testsToRun.viewportHeight);
       console.log('CLICK ELEMENT:', testsToRun.clickElement);
       console.log('HOVER ELEMENT:', testsToRun.hoverElement);
+      console.log('Single element:', testsToRun.singleElement);
+      console.log('Check Selector:', testsToRun.checkSelector);
 
 
       console.log('**********************************************');

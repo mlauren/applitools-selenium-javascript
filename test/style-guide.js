@@ -60,9 +60,11 @@ const standardNamingFormat = testIds.map(function(id) {
   let testData = {
     testId: id,
     patternName: 'SG: ' + id.replace(/sg-/g, '').replace(/\b\w/g, function(name){ return name.toUpperCase() }).replace(/-/g, ' '),
-    baseUrl: baseUrlPrefix + id + '.html',
+    baseUrl: baseUrlPrefix + id + '.html?wcmmode=disabled',
     url: urlPrefix + id.replace(/sg-/g, '') + '.html',
     appName: groupAppName,
+    singleElement: true,
+    checkSelector: ".-inverted."+id.replace(/sg-/g, '')
   }
   return testData;
 });
