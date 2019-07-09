@@ -4,6 +4,9 @@ require('chromedriver'); // eslint-disable-line node/no-unpublished-require
 const { Builder, Capabilities } = require('selenium-webdriver');
 const { Eyes, VisualGridRunner, Target, ConsoleLogHandler, Configuration, BrowserType, DeviceName, ScreenOrientation, BatchInfo } = require('@applitools/eyes-selenium');
 
+var testSelector = require("./testSelector.js");
+
+
 function initializeEyes(runner) {
   // Create Eyes object with the runner, meaning it'll be a Visual Grid eyes.
   const eyes = new Eyes(runner);
@@ -20,19 +23,14 @@ function initializeEyes(runner) {
   // Set API key
   configuration.setApiKey(process.env.APPLITOOLS_API_KEY);
 
-
-  // If dedicated or on-prem cloud, uncomment and enter the cloud url
-  // Default: https://eyes.applitools.com
-  // configuration.setServerUrl("https://testeyes.applitools.com");
-
   // Set a proxy if required
   // configuration.setProxy('http://localhost:8888');
 
   // Set the AUT name
-  configuration.setAppName('Eyes Examples');
+  configuration.setAppName(testSelector.appName);
 
   // Set a test name
-  configuration.setTestName('PL Select pagination combo test');
+  configuration.setTestName(testSelector.testName);
 
   // Set a batch name so all the different browser and mobile combinations are part of the same batch
   configuration.setBatch(new BatchInfo("PL Select pagination combo test"));
@@ -74,7 +72,7 @@ async function runTest(url, runner) {
     await eyes.open(webDriver);
 
     // Check the page
-    await eyes.check('Main Page ' + url, Target.window());
+    await eyes.check('testSelector.testName ' + url, Target.window());
 
     // Close eyes asynchronously
     await eyes.closeAsync();
@@ -93,11 +91,7 @@ async function runTest(url, runner) {
   try {
     // Define links to process
     const urlsToTest = [
-      // 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/patterns-library-dp/demos/pagination-demo.html'
-      'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/patterns-library-test/demos/pagination-demo.html',
-      // 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/patterns-library-3.9.24/demos/pagination-demo.html'
-      // 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/pagination-demo.html',
-      // 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/action-area-demo.html'
+      testSelector.url
     ];
 
     // Run test for each link

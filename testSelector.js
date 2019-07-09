@@ -5,8 +5,6 @@ const totalTests = patternLibraryTests.concat(styleGuideTests, customTests);
 
 const processTestName = process.argv[2];
 
-const options = process.argv[3];
-
 if (!processTestName) {
   console.log(
     "MISSING TEST NAME. Valid names are: 'action-area', 'content-toggle', 'sg-grid', etc. See files in test folder to view."
