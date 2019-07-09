@@ -33,7 +33,7 @@ function initializeEyes(runner) {
   configuration.setTestName(testSelector.testName);
 
   // Set a batch name so all the different browser and mobile combinations are part of the same batch
-  configuration.setBatch(new BatchInfo("PL Select pagination combo test"));
+  configuration.setBatch(new BatchInfo(testSelector.testName + " " + testSelector.url));
 
   // Add Chrome browsers with different Viewports
   configuration.addBrowser(800, 600, BrowserType.CHROME);
