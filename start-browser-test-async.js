@@ -1,7 +1,7 @@
 'use strict';
 
 require('chromedriver'); // eslint-disable-line node/no-unpublished-require
-const { Builder, Capabilities } = require('selenium-webdriver');
+const { Builder, Capabilities, By } = require('selenium-webdriver');
 const { Eyes, VisualGridRunner, Target, ConsoleLogHandler, Configuration, BrowserType, DeviceName, ScreenOrientation, BatchInfo } = require('@applitools/eyes-selenium');
 
 var testSelector = require("./testSelector.js");
@@ -67,6 +67,16 @@ async function runTest(url, runner) {
   try {
     // Navigate to the URL we want to test
     await webDriver.get(url);
+
+    if (await testSelector.clickElement) {
+      await webDriver.findElement(By.css(testSelector.clickElement)).click();
+    }
+    //Mouseover on an element
+    if (await testSelector.hoverElement) {
+      let elem = await webDriver.findElement(By.css(testSelector.hoverElement)); 
+
+      await webDriver.actions().move({origin: elem}).perform(); 
+    }
 
     // Call Open on eyes to initialize a test session
     await eyes.open(webDriver);
