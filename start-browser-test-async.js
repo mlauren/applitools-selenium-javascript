@@ -32,10 +32,10 @@ function initializeEyes(runner) {
   configuration.setAppName('Eyes Examples');
 
   // Set a test name
-  configuration.setTestName('My first Javascript test!');
+  configuration.setTestName('PL Select pagination combo test');
 
   // Set a batch name so all the different browser and mobile combinations are part of the same batch
-  configuration.setBatch(new BatchInfo("VIP Browser combo batch"));
+  configuration.setBatch(new BatchInfo("PL Select pagination combo test"));
 
   // Add Chrome browsers with different Viewports
   configuration.addBrowser(800, 600, BrowserType.CHROME);
@@ -47,6 +47,10 @@ function initializeEyes(runner) {
 
   // Add iPhone 4 device emulation
   configuration.addDeviceEmulation(DeviceName.iPad, ScreenOrientation.PORTRAIT);
+  configuration.addDeviceEmulation(DeviceName.iPhone_X, ScreenOrientation.PORTRAIT);
+  configuration.addDeviceEmulation(DeviceName.iPhone_6_7_8, ScreenOrientation.PORTRAIT);
+  configuration.addDeviceEmulation(DeviceName.Galaxy_S5, ScreenOrientation.PORTRAIT);
+
 
   // Set the configuration object to eyes
   eyes.setConfiguration(configuration);
@@ -89,7 +93,11 @@ async function runTest(url, runner) {
   try {
     // Define links to process
     const urlsToTest = [
-      'http://cskpcloudxn1713.cloud.kp.org/styleguide/typography.html'
+      // 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/patterns-library-dp/demos/pagination-demo.html'
+      'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/patterns-library-test/demos/pagination-demo.html',
+      // 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/patterns-library-3.9.24/demos/pagination-demo.html'
+      // 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/pagination-demo.html',
+      // 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/action-area-demo.html'
     ];
 
     // Run test for each link

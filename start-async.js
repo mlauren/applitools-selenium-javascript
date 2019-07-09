@@ -1,9 +1,9 @@
 'use strict';
 
 // require('chromedriver'); // eslint-disable-line node/no-unpublished-require
-require('geckodriver'); // eslint-disable-line node/no-unpublished-require
+require('chromedriver'); // eslint-disable-line node/no-unpublished-require
 
-const { Builder, Capabilities, By } = require('selenium-webdriver');
+const { Builder, Capabilities, By, Actions } = require('selenium-webdriver');
 const { Eyes, Target, ConsoleLogHandler, BatchInfo } = require('@applitools/eyes-selenium'); // should be replaced to '@applitools/eyes-selenium'
 
 const testSelector = require("./testSelector.js");
@@ -39,23 +39,64 @@ const testSelector = require("./testSelector.js");
 
   try {
     // Start the test and set the browser's viewport size to 800x600.
-    await eyes.open(driver, testSelector.appName, testSelector.testName, { width: 800, height: 600 });
+    await eyes.open(driver, testSelector.appName, testSelector.testName, {
+      width: testSelector.viewportWidth,
+      height: testSelector.viewportHeight 
+    });
 
-    // Navigate the browser to the "hello world!" web-site.
+    // Check base url
     await driver.get(testSelector.baseUrl);
 
-    // Visual checkpoint #1.
-    await eyes.check(testSelector.patternName, Target.window());
-
+    
     if (await testSelector.clickElement) {
       await driver.findElement(By.css(testSelector.clickElement)).click();
     }
     //Mouseover on an element
     if (await testSelector.hoverElement) {
       let elem = await driver.findElement(By.css(testSelector.hoverElement)); 
-      await driver.actions().move({origin: elem}).perform();
+
+      await driver.actions().move({origin: elem}).perform(); 
     }
     
+    // Visual checkpoint #1.
+     // Visual checkpoint #1.
+    if (testSelector.singleElement) {
+      if (testSelector.checkSelector) {
+        await eyes.check(testSelector.testName + " " + testSelector.baseUrl, Target.region(By.css(testSelector.checkSelector), null));
+      }
+    } else {
+      await eyes.check(testSelector.testName + " " + testSelector.baseUrl, Target.window());
+    }
+
+    await eyes.close(false);
+
+    await eyes.setSaveFailedTests(false);
+
+    await eyes.open(driver, testSelector.appName, testSelector.testName, {
+      width: testSelector.viewportWidth,
+      height: testSelector.viewportHeight 
+    });
+    // check the variation url
+    await driver.get(testSelector.url);
+    
+    if (await testSelector.clickElement) {
+      await driver.findElement(By.css(testSelector.clickElement)).click();
+    }
+    //Mouseover on an element
+    if (await testSelector.hoverElement) {
+      let elem = await driver.findElement(By.css(testSelector.hoverElement)); 
+
+      await driver.actions().move({origin: elem}).perform(); 
+    }
+    
+    // Visual checkpoint #1.
+    if (testSelector.singleElement) {
+      if (testSelector.checkSelector) {
+        await eyes.check(testSelector.testName + testSelector.url, Target.region(By.css(testSelector.checkSelector), null));
+      }
+    } else {
+      await eyes.check(testSelector.testName + testSelector.url, Target.window());
+    }
 
     await eyes.close();
 
