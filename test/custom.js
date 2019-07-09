@@ -52,6 +52,24 @@ const customNamingFormat = [
     viewportHeight: 800,
     singleElement: true,
     checkSelector: "#singlePickerTrigger-0"
+  },
+  {
+    testId: 'styleguide-dropdowns',
+    patternName: 'Datepicker Check Icons',
+    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/styleguide/select.html',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/styleguide/select.html',
+    appName: groupAppName,
+    viewportWidth: 1000,
+    viewportHeight: 800,
+  },
+  {
+    testId: 'styleguide-dropdowns-2',
+    patternName: 'Datepicker Check Icons',
+    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/action-area-demo.html',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/patterns-library-test/demos/action-area-demo.html',
+    appName: groupAppName,
+    viewportWidth: 1000,
+    viewportHeight: 800,
   }
 ];
 
