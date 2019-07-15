@@ -45,7 +45,7 @@ const testSelector = require("./testSelector.js");
     });
 
     // Check base url
-    await driver.get(testSelector.baseUrl);
+    await driver.get(testSelector.url);
 
     if (await testSelector.clickElement) {
       await driver.findElement(By.css(testSelector.clickElement)).click();
@@ -67,8 +67,13 @@ const testSelector = require("./testSelector.js");
       await eyes.check(testSelector.testName + " " + testSelector.baseUrl, Target.window());
     }
 
-    await eyes.getRunner().getAllResults();
-    // const results = await eyes.getRunner().getAllTestResults(); for (var result in results) {console.log("My Indiv Result: " + result) //await expect(results.getStatus()).to.equal('Passed');await expect(result).to.equal('_passed');}
+    const results = await eyes.getRunner().getAllTestResults(); 
+    for (var result in results) {
+      console.log("My Indiv Result: " + result);
+      // await expect(results.getStatus()).to.equal('Passed');
+      // await expect(result).to.equal('_passed');
+    }
+    await eyes.close();
 
   } finally {
     // Close the browser.
