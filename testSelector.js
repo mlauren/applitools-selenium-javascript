@@ -5,6 +5,8 @@ const totalTests = patternLibraryTests.concat(styleGuideTests, customTests);
 
 const processTestName = process.argv[2];
 
+const processUrlToUse = process.argv[3];
+
 if (!processTestName) {
   console.log(
     "MISSING TEST NAME. Valid names are: 'action-area', 'content-toggle', 'sg-grid', etc. See files in test folder to view."
@@ -18,7 +20,6 @@ totalTests.forEach(function(test) {
     if (processTestName === test.testId) {
       testsToRun = {
         url: test.url,
-        baseUrl: test.baseUrl,
         appName: test.appName,
         windowName: test.windowName || test.patternName,
         testName: test.patternName,
@@ -31,6 +32,9 @@ totalTests.forEach(function(test) {
         checkSelector: test.checkSelector || false,
         keys:["admin", "admin"]
       };
+      if (processUrlToUse === "baseUrl" || processUrlToUse === "baseURL") {
+        testsToRun.url = test.baseUrl;
+      }
       console.log('**********************************************');
       console.log('RUNNING...', processTestName);
       console.log('TEST APP URL:', testsToRun.url);

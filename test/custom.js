@@ -50,7 +50,6 @@ const customNamingFormat = [
     appName: groupAppName,
     viewportWidth: 1000,
     viewportHeight: 800,
-    singleElement: true,
     checkSelector: "#singlePickerTrigger-0"
   },
   {
