@@ -47,7 +47,6 @@ const testSelector = require("./testSelector.js");
     // Check base url
     await driver.get(testSelector.baseUrl);
 
-    
     if (await testSelector.clickElement) {
       await driver.findElement(By.css(testSelector.clickElement)).click();
     }
@@ -68,37 +67,8 @@ const testSelector = require("./testSelector.js");
       await eyes.check(testSelector.testName + " " + testSelector.baseUrl, Target.window());
     }
 
-    await eyes.close(false);
-
-    await eyes.setSaveFailedTests(false);
-
-    await eyes.open(driver, testSelector.appName, testSelector.testName, {
-      width: testSelector.viewportWidth,
-      height: testSelector.viewportHeight 
-    });
-    // check the variation url
-    await driver.get(testSelector.url);
-    
-    if (await testSelector.clickElement) {
-      await driver.findElement(By.css(testSelector.clickElement)).click();
-    }
-    //Mouseover on an element
-    if (await testSelector.hoverElement) {
-      let elem = await driver.findElement(By.css(testSelector.hoverElement)); 
-
-      await driver.actions().move({origin: elem}).perform(); 
-    }
-    
-    // Visual checkpoint #1.
-    if (testSelector.singleElement) {
-      if (testSelector.checkSelector) {
-        await eyes.check(testSelector.testName + testSelector.url, Target.region(By.css(testSelector.checkSelector), null));
-      }
-    } else {
-      await eyes.check(testSelector.testName + testSelector.url, Target.window());
-    }
-
-    await eyes.close();
+    await eyes.getRunner().getAllResults();
+    // const results = await eyes.getRunner().getAllTestResults(); for (var result in results) {console.log("My Indiv Result: " + result) //await expect(results.getStatus()).to.equal('Passed');await expect(result).to.equal('_passed');}
 
   } finally {
     // Close the browser.
