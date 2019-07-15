@@ -59,11 +59,10 @@ const testSelector = require("./testSelector.js");
     
     // Visual checkpoint #1.
      // Visual checkpoint #1.
-    if (testSelector.singleElement) {
-      if (testSelector.checkSelector) {
-        await eyes.check(testSelector.testName + " " + testSelector.baseUrl, Target.region(By.css(testSelector.checkSelector), null));
-      }
-    } else {
+    if (testSelector.checkSelector) {
+      await eyes.check(testSelector.testName + " " + testSelector.baseUrl, Target.region(By.css(testSelector.checkSelector), null));
+    }
+    else {
       await eyes.check(testSelector.testName + " " + testSelector.baseUrl, Target.window());
     }
 
