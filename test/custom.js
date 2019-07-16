@@ -7,9 +7,10 @@ const customNamingFormat = [
   {
     testId: 'modal-icons',
     patternName: 'Modal Icons Demo',
-    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/modal-1.7/',
-    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/modal-demo/',
+    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/modal-demo.html',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/patterns-library-test/demos/modal-demo.html',
     appName: groupAppName,
+    clickElement: "[data-modal-trigger='example-modal-one']",
     viewportWidth: 1000,
     viewportHeight: 800
   },
