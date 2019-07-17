@@ -27,7 +27,8 @@ totalTests.forEach(function(test) {
         viewportWidth: test.viewportWidth || 1200,
         viewportHeight: test.viewportHeight || 700,
         hoverElement: test.hoverElement,
-        clickElement: test.clickElement
+        clickElement: test.clickElement,
+        checkSelector: test.checkSelector
       };
       if (processUrlToUse === "baseUrl" || processUrlToUse === "baseURL") {
         testsToRun.url = test.baseUrl;

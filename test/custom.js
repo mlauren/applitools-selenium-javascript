@@ -70,6 +70,17 @@ const customNamingFormat = [
     appName: groupAppName,
     viewportWidth: 1000,
     viewportHeight: 800,
+  },
+  {
+    testId: 'region-picker-test',
+    patternName: 'Region picker test',
+    baseUrl: 'https://ss003.kaiserpermanente.org/why-kp/test',
+    url: 'https://ss003.kaiserpermanente.org/why-kp/test',
+    appName: "Region Picker AEM",
+    viewportWidth: 1000,
+    viewportHeight: 800,
+    checkSelector: '.region-picker.section',
+    // checkSelector: '.region-picker-pattern.section',
   }
 ];
 

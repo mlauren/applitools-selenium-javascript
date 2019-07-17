@@ -58,21 +58,25 @@ const testSelector = require("./testSelector.js");
     }
     
     // Visual checkpoint #1.
-     // Visual checkpoint #1.
+    // @TODO if element selector not found
     if (testSelector.checkSelector) {
-      await eyes.check(testSelector.testName + " " + testSelector.baseUrl, Target.region(By.css(testSelector.checkSelector), null));
+      await eyes.check(testSelector.testName + " " + testSelector.url, Target.region(By.css(testSelector.checkSelector), null));
     }
     else {
-      await eyes.check(testSelector.testName + " " + testSelector.baseUrl, Target.window());
+      await eyes.check(testSelector.testName + " " + testSelector.url, Target.window());
     }
 
-    const results = await eyes.getRunner().getAllTestResults(); 
-    for (var result in results) {
-      console.log("My Indiv Result: " + result);
-      // await expect(results.getStatus()).to.equal('Passed');
-      // await expect(result).to.equal('_passed');
-    }
-    await eyes.close();
+    await eyes.closeAsync();
+    // const results = await eyes.getRunner().getAllTestResults();
+
+    // for (var result in results) {
+    //   console.log("My Indiv Result: " + result);
+    //   // await expect(results.getStatus()).to.equal('Passed');
+    //   // await expect(result).to.equal('_passed');
+    // }
+
+    // wait until results come back
+    // await eyes.close();
 
   } finally {
     // Close the browser.

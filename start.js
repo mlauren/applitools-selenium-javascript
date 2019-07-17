@@ -70,9 +70,9 @@ try {
     });
   }
 
-  if (testSelector.singleElement) {
+  if (testSelector.checkSelector) {
     if (testSelector.checkSelector) {
-      eyes.check("name", Target.region(By.css(testSelector.checkSelector), null));
+      eyes.check("name", Target.region(By.id(testSelector.checkSelector), null));
     }
   } else {
     eyes.checkWindow(testSelector.windowName);
