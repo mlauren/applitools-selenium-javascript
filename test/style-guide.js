@@ -1,5 +1,5 @@
 const groupAppName = 'Style Guide';
-const baseUrlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/styleguide/'; // your baseline url
+const baseUrlPrefix = 'http://10.10.61.5:4502/content/kporg/en/hawaii/test-page/pl_test/'; // your baseline url
 const urlPrefix = 'http://cskpcloudxn1713.cloud.kp.org/styleguide-sandbox/'; // your custom test url
 
 const testIds = [
@@ -60,9 +60,11 @@ const standardNamingFormat = testIds.map(function(id) {
   let testData = {
     testId: id,
     patternName: 'SG: ' + id.replace(/sg-/g, '').replace(/\b\w/g, function(name){ return name.toUpperCase() }).replace(/-/g, ' '),
-    baseUrl: baseUrlPrefix + id.replace(/sg-/g, '') + '.html',
+    baseUrl: baseUrlPrefix + id + '.html?wcmmode=disabled',
     url: urlPrefix + id.replace(/sg-/g, '') + '.html',
     appName: groupAppName,
+    singleElement: true,
+    checkSelector: ".-inverted."+id.replace(/sg-/g, '')
   }
   return testData;
 });

@@ -57,6 +57,11 @@ try {
 
   // Navigate the browser to the base url
   driver.get(testSelector.baseUrl);
+  if (testSelector.keys) {
+    driver.findElement(By.id('username')).sendKeys(testSelector.keys[0]);//enter your username
+    driver.findElement(By.id('password')).sendKeys(testSelector.keys[1]);// enter your password
+    driver.findElement(By.id('submit-button')).click();
+  }
 
   if (testSelector.clickElement) {
     driver.findElement(By.css(testSelector.clickElement)).click();
@@ -72,7 +77,7 @@ try {
 
   if (testSelector.checkSelector) {
     if (testSelector.checkSelector) {
-      eyes.check("name", Target.region(By.id(testSelector.checkSelector), null));
+      eyes.check("button", Target.region(By.css(testSelector.checkSelector), null));
     }
   } else {
     eyes.checkWindow(testSelector.windowName);
@@ -106,7 +111,7 @@ try {
 
   if (testSelector.singleElement) {
     if (testSelector.checkSelector) {
-      eyes.check("name", Target.region(By.css(testSelector.checkSelector), null));
+      eyes.check("button", Target.region(By.css(testSelector.checkSelector), null));
     }
   } else {
     eyes.checkWindow(testSelector.windowName);
