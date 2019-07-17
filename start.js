@@ -75,7 +75,7 @@ try {
     });
   }
 
-  if (testSelector.singleElement) {
+  if (testSelector.checkSelector) {
     if (testSelector.checkSelector) {
       eyes.check("button", Target.region(By.css(testSelector.checkSelector), null));
     }

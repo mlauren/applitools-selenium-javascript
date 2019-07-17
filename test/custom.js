@@ -7,9 +7,10 @@ const customNamingFormat = [
   {
     testId: 'modal-icons',
     patternName: 'Modal Icons Demo',
-    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/modal-1.7/',
-    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/modal-demo/',
+    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/modal-demo.html',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/patterns-library-test/demos/modal-demo.html',
     appName: groupAppName,
+    clickElement: "[data-modal-trigger='example-modal-one']",
     viewportWidth: 1000,
     viewportHeight: 800
   },
@@ -69,6 +70,17 @@ const customNamingFormat = [
     appName: groupAppName,
     viewportWidth: 1000,
     viewportHeight: 800,
+  },
+  {
+    testId: 'region-picker-test',
+    patternName: 'Region picker test',
+    baseUrl: 'https://ss003.kaiserpermanente.org/why-kp/test',
+    url: 'https://ss003.kaiserpermanente.org/why-kp/test',
+    appName: "Region Picker AEM",
+    viewportWidth: 1000,
+    viewportHeight: 800,
+    checkSelector: '.region-picker.section',
+    // checkSelector: '.region-picker-pattern.section',
   }
 ];
 
