@@ -17,6 +17,9 @@ function initializeEyes(runner) {
   const configuration = new Configuration();
 
   configuration.setForceFullPageScreenshot(true);
+  configuration.setStitchMode(eyes.StitchMode.CSS);
+
+ //  configuration.setStitchMode(configuration._stitchMode.CSS);
 
   configuration.setServerUrl("https://kpeyes.applitools.com")
 
@@ -36,18 +39,20 @@ function initializeEyes(runner) {
   configuration.setBatch(new BatchInfo(testSelector.testName + " " + testSelector.url));
 
   // Add Chrome browsers with different Viewports
+  configuration.addBrowser(1000, 800, BrowserType.CHROME);
+
   configuration.addBrowser(800, 600, BrowserType.CHROME);
   configuration.addBrowser(700, 500, BrowserType.CHROME);
 
-  // Add Firefox browser with different Viewports
-  configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
-  configuration.addBrowser(1600, 1200, BrowserType.FIREFOX);
+  // // Add Firefox browser with different Viewports
+  // configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
+  // configuration.addBrowser(1600, 1200, BrowserType.FIREFOX);
 
   // Add iPhone 4 device emulation
   configuration.addDeviceEmulation(DeviceName.iPad, ScreenOrientation.PORTRAIT);
   configuration.addDeviceEmulation(DeviceName.iPhone_X, ScreenOrientation.PORTRAIT);
-  configuration.addDeviceEmulation(DeviceName.iPhone_6_7_8, ScreenOrientation.PORTRAIT);
-  configuration.addDeviceEmulation(DeviceName.Galaxy_S5, ScreenOrientation.PORTRAIT);
+  // configuration.addDeviceEmulation(DeviceName.iPhone_6_7_8, ScreenOrientation.PORTRAIT);
+  // configuration.addDeviceEmulation(DeviceName.Galaxy_S5, ScreenOrientation.PORTRAIT);
 
 
   // Set the configuration object to eyes

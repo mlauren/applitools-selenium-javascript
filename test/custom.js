@@ -81,6 +81,26 @@ const customNamingFormat = [
     viewportHeight: 800,
     checkSelector: '.region-picker.section',
     // checkSelector: '.region-picker-pattern.section',
+  },
+  {
+    testId: 'modal-merge-no-bar',
+    patternName: 'Modal Merge No Bar',
+    baseUrl: '',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/modal-1.7/',
+    appName: "Modal Pattern",
+    viewportWidth: 1000,
+    viewportHeight: 800,
+    clickElement: '#fullscreen-modal-open-no-bar',
+  },
+  {
+    testId: 'modal-base-no-bar',
+    patternName: 'Modal Merge No Bar',
+    baseUrl: '',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/modal-demo.html',
+    appName: "Modal Pattern",
+    viewportWidth: 1000,
+    viewportHeight: 800,
+    clickElement: '[data-modal-trigger="example-full-screen-modal-one"]',
   }
 ];
 
