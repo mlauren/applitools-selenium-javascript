@@ -4,7 +4,7 @@
 require('chromedriver'); // eslint-disable-line node/no-unpublished-require
 
 const { Builder, Capabilities, By, Actions } = require('selenium-webdriver');
-const { Eyes, Target, ConsoleLogHandler, BatchInfo } = require('@applitools/eyes-selenium'); // should be replaced to '@applitools/eyes-selenium'
+const { Eyes, StitchMode, Target, ConsoleLogHandler, BatchInfo } = require('@applitools/eyes-selenium'); // should be replaced to '@applitools/eyes-selenium'
 
 const testSelector = require("./testSelector.js");
 
@@ -31,7 +31,9 @@ const testSelector = require("./testSelector.js");
   eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
 
   //scroll the entire page
-  // eyes.setForceFullPageScreenshot(true);
+  eyes.setForceFullPageScreenshot(true);
+  eyes.setStitchMode(StitchMode.CSS);
+
 
   const batchInfo = new BatchInfo();
   batchInfo.setSequenceName('alpha sequence');

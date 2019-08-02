@@ -90,17 +90,7 @@ const customNamingFormat = [
     appName: "Modal Pattern",
     viewportWidth: 1000,
     viewportHeight: 800,
-    clickElement: '#fullscreen-modal-open-no-bar',
-  },
-  {
-    testId: 'modal-base-no-bar',
-    patternName: 'Modal Merge No Bar',
-    baseUrl: '',
-    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/modal-demo.html',
-    appName: "Modal Pattern",
-    viewportWidth: 1000,
-    viewportHeight: 800,
-    clickElement: '[data-modal-trigger="example-full-screen-modal-one"]',
+    // clickElement: '#fullscreen-modal-open-no-bar',
   }
 ];
 

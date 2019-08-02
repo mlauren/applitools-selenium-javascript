@@ -2,7 +2,7 @@
 
 require('chromedriver'); // eslint-disable-line node/no-unpublished-require
 const { Builder, Capabilities, By } = require('selenium-webdriver');
-const { Eyes, VisualGridRunner, Target, ConsoleLogHandler, Configuration, BrowserType, DeviceName, ScreenOrientation, BatchInfo } = require('@applitools/eyes-selenium');
+const { Eyes, StitchMode, VisualGridRunner, Target, ConsoleLogHandler, Configuration, BrowserType, DeviceName, ScreenOrientation, BatchInfo } = require('@applitools/eyes-selenium');
 
 var testSelector = require("./testSelector.js");
 
@@ -17,9 +17,8 @@ function initializeEyes(runner) {
   const configuration = new Configuration();
 
   configuration.setForceFullPageScreenshot(true);
-  configuration.setStitchMode(eyes.StitchMode.CSS);
-
- //  configuration.setStitchMode(configuration._stitchMode.CSS);
+  
+  eyes.setStitchMode(StitchMode.CSS);
 
   configuration.setServerUrl("https://kpeyes.applitools.com")
 
@@ -87,7 +86,9 @@ async function runTest(url, runner) {
     await eyes.open(webDriver);
 
     // Check the page
-    await eyes.check('testSelector.testName ' + url, Target.window());
+    // await eyes.check('testSelector.testName ' + url, Target.window());
+
+    await eyes.check(testSelector.testName + " " + testSelector.url, Target.region(By.css('#modal-fullscreen > div:nth-child(1) > div:nth-child(2)'), null));
 
     // Close eyes asynchronously
     await eyes.closeAsync();
