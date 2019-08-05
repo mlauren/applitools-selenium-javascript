@@ -61,12 +61,18 @@ const testSelector = require("./testSelector.js");
     
     // Visual checkpoint #1.
     // @TODO if element selector not found
-    if (testSelector.checkSelector) {
-      await eyes.check(testSelector.testName + " " + testSelector.url, Target.region(By.css(testSelector.checkSelector), null));
-    }
-    else {
-      await eyes.check(testSelector.testName + " " + testSelector.url, Target.window());
-    }
+    // if (testSelector.checkSelector) {
+    //   await eyes.check(testSelector.testName + " " + testSelector.url, Target.region(By.css(testSelector.checkSelector), null));
+    // }
+    // else {
+    //   await eyes.check(testSelector.testName + " " + testSelector.url, Target.window());
+    // }
+
+    await eyes.check(testSelector.testName + " " + testSelector.url, Target.window());
+
+    //'#modal-fullscreen-no-bar > div.modal-content > div.modal-inner'
+    // await eyes.check(testSelector.testName + " " + testSelector.url, Target.region(By.css("#modal-fullscreen-no-bar > div > div.modal-inner"), null).fully());
+
 
     await eyes.closeAsync();
     // const results = await eyes.getRunner().getAllTestResults();

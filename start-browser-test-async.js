@@ -6,7 +6,6 @@ const { Eyes, StitchMode, VisualGridRunner, Target, ConsoleLogHandler, Configura
 
 var testSelector = require("./testSelector.js");
 
-
 function initializeEyes(runner) {
   // Create Eyes object with the runner, meaning it'll be a Visual Grid eyes.
   const eyes = new Eyes(runner);
@@ -86,9 +85,11 @@ async function runTest(url, runner) {
     await eyes.open(webDriver);
 
     // Check the page
-    // await eyes.check('testSelector.testName ' + url, Target.window());
+    await eyes.check('testSelector.testName ' + url, Target.window());
 
-    await eyes.check(testSelector.testName + " " + testSelector.url, Target.region(By.css('#modal-fullscreen > div:nth-child(1) > div:nth-child(2)'), null));
+    //'#modal-fullscreen-no-bar > div.modal-content > div.modal-inner'
+    // modal-demo : "#modal-fullscreen-no-bar > div > div.modal-inner"
+    // await eyes.check(testSelector.testName + " " + testSelector.url, Target.region(By.css('#example-modal-two'), null).fully());
 
     // Close eyes asynchronously
     await eyes.closeAsync();
