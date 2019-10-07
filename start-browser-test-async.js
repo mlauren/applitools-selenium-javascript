@@ -18,7 +18,7 @@ function initializeEyes(runner) {
 
   configuration.setForceFullPageScreenshot(true);
 
-  configuration.setServerUrl("https://kpeyes.applitools.com")
+  configuration.setServerUrl("https://kpeyesapi.applitools.com")
 
   // Set API key
   configuration.setApiKey(process.env.APPLITOOLS_API_KEY);
@@ -42,13 +42,15 @@ function initializeEyes(runner) {
   // Add Firefox browser with different Viewports
   configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
   configuration.addBrowser(1600, 1200, BrowserType.FIREFOX);
+  configuration.addBrowser(1600, 1200, BrowserType.IE_11);
+  configuration.addBrowser(1600, 1200, BrowserType.IE_10);
 
   // Add iPhone 4 device emulation
   configuration.addDeviceEmulation(DeviceName.iPad, ScreenOrientation.PORTRAIT);
   configuration.addDeviceEmulation(DeviceName.iPhone_X, ScreenOrientation.PORTRAIT);
   configuration.addDeviceEmulation(DeviceName.iPhone_6_7_8, ScreenOrientation.PORTRAIT);
   configuration.addDeviceEmulation(DeviceName.Galaxy_S5, ScreenOrientation.PORTRAIT);
-
+  configuration.addDeviceEmulation(DeviceName.BlackBerry_Z30, ScreenOrientation.PORTRAIT);
 
   // Set the configuration object to eyes
   eyes.setConfiguration(configuration);

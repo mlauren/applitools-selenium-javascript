@@ -1,6 +1,6 @@
-const patternLibraryTests = require('./test/pattern-library');
-const styleGuideTests = require('./test/style-guide');
-const customTests = require('./test/custom');
+const patternLibraryTests = require('./tests/pattern-library');
+const styleGuideTests = require('./tests/style-guide');
+const customTests = require('./tests/custom');
 const totalTests = patternLibraryTests.concat(styleGuideTests, customTests);
 
 const processTestName = process.argv[2];
