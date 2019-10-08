@@ -26,11 +26,10 @@ const customNamingFormat = [
   {
     testId: 'datepicker-hover-state',
     patternName: 'Datepicker Hover State',
-    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/datepicker-pattern-3.0',
-    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/lauren-dev/datepicker-pattern',
+    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/lauren-dev/datepicker-pattern',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/lauren-dev/datepicker-pattern',
     appName: groupAppName,
     clickElement: "#singlePickerTrigger-0",
-    hoverElement: ".calendars:first-of-type .day.disabled:first-of-type",
     viewportWidth: 1000,
     viewportHeight: 800
   },
@@ -81,6 +80,60 @@ const customNamingFormat = [
     viewportHeight: 800,
     checkSelector: '.region-picker.section',
     // checkSelector: '.region-picker-pattern.section',
+  },
+  {
+    testId: 'pl-test',
+    patternName: 'PL Test',
+    baseUrl: 'http://localhost:8080/demos/carousel-demo.html',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/carousel-demo.html',
+    appName: "Patterns Library Carousel Demo",
+    viewportWidth: 1000,
+    viewportHeight: 800
+  },
+  {
+    testId: 'ratings-reviews',
+    patternName: 'Ratings and Reviews',
+    baseUrl: '',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/lauren-dev/styleguide/ratings.html',
+    appName: "Styleguide Ratings and Reviews",
+    viewportWidth: 1000,
+    viewportHeight: 800
+  },
+  {
+    testId: 'kporg-demo-test',
+    patternName: 'Kp Org Demo Test',
+    baseUrl: '',
+    url: 'https://healthy.kaiserpermanente.org/',
+    appName: "Kaiser Permanente Front Page",
+    viewportWidth: 1000,
+    viewportHeight: 800
+  },
+  {
+    testId: 'kporg-doctors-reviews-test',
+    patternName: 'Kp Doctors Review Test',
+    baseUrl: '',
+    url: 'https://wppdev3.kaiserpermanente.org/oregon-washington/clinicians/douglas-ackerman-0077272',
+    appName: "Kaiser Permanente Front Page",
+    viewportWidth: 1000,
+    viewportHeight: 800
+  },
+  {
+    testId: 'styleguide-grid',
+    patternName: 'Styleguide Grid',
+    baseUrl: '',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/lauren-dev/styleguide-grid/grid.html',
+    appName: "Styleguide",
+    viewportWidth: 1000,
+    viewportHeight: 800
+  },
+  {
+    testId: 'forms-selectables',
+    patternName: 'Form Pattern',
+    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/lauren-dev/form-pattern/',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/lauren-dev/form-pattern-STYLGD-4313/',
+    appName: "Patterns Library - Forms Pattern",
+    viewportWidth: 1000,
+    viewportHeight: 800
   }
 ];
 
