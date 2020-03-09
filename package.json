@@ -7,8 +7,8 @@
     "browser-test": "node start-browser-test-async.js"
   },
   "devDependencies": {
-    "@applitools/eyes-selenium": "4.22.2",
-    "selenium-webdriver": "^4.0.0-alpha.3"
+    "@applitools/eyes-selenium": "^4.33.26",
+    "selenium-webdriver": "^4.0.0-alpha.7"
   },
   "dependencies": {}
 }

@@ -51,6 +51,8 @@ function initializeEyes(runner) {
   configuration.addDeviceEmulation(DeviceName.iPhone_6_7_8, ScreenOrientation.PORTRAIT);
   configuration.addDeviceEmulation(DeviceName.Galaxy_S5, ScreenOrientation.PORTRAIT);
   configuration.addDeviceEmulation(DeviceName.BlackBerry_Z30, ScreenOrientation.PORTRAIT);
+  configuration.addDeviceEmulation(DeviceName.Pixel_2_XL, ScreenOrientation.PORTRAIT);
+
 
   // Set the configuration object to eyes
   eyes.setConfiguration(configuration);
