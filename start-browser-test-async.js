@@ -85,8 +85,13 @@ async function runTest(url, runner) {
     // Call Open on eyes to initialize a test session
     await eyes.open(webDriver);
 
-    // Check the page
-    await eyes.check('testSelector.testName ' + url, Target.window());
+    // Check the page or a selector
+    if (testSelector.checkSelector) {
+      await eyes.check(testSelector.testName + " " + url, Target.region(By.css(testSelector.checkSelector), null));
+    }
+    else {
+      await eyes.check('testSelector.testName ' + url, Target.window());
+    }
 
     // Close eyes asynchronously
     await eyes.closeAsync();

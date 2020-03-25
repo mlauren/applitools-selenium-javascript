@@ -79,7 +79,6 @@ const customNamingFormat = [
     viewportWidth: 1000,
     viewportHeight: 800,
     checkSelector: '.region-picker.section',
-    // checkSelector: '.region-picker-pattern.section',
   },
   {
     testId: 'pl-test',
