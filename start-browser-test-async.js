@@ -36,14 +36,14 @@ function initializeEyes(runner) {
   configuration.setBatch(new BatchInfo(testSelector.testName + " " + testSelector.url));
 
   // Add Chrome browsers with different Viewports
-  configuration.addBrowser(800, 600, BrowserType.CHROME);
-  configuration.addBrowser(700, 500, BrowserType.CHROME);
+  configuration.addBrowser(525, 600, BrowserType.CHROME);
+  // configuration.addBrowser(700, 500, BrowserType.CHROME);
 
   // Add Firefox browser with different Viewports
-  configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
-  configuration.addBrowser(1600, 1200, BrowserType.FIREFOX);
-  configuration.addBrowser(1600, 1200, BrowserType.IE_11);
-  configuration.addBrowser(1600, 1200, BrowserType.IE_10);
+  // configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
+  // configuration.addBrowser(1600, 1200, BrowserType.FIREFOX);
+  // configuration.addBrowser(1600, 1200, BrowserType.IE_11);
+  // configuration.addBrowser(1600, 1200, BrowserType.IE_10);
 
   // Add iPhone 4 device emulation
   configuration.addDeviceEmulation(DeviceName.iPad, ScreenOrientation.PORTRAIT);
@@ -52,7 +52,6 @@ function initializeEyes(runner) {
   configuration.addDeviceEmulation(DeviceName.Galaxy_S5, ScreenOrientation.PORTRAIT);
   configuration.addDeviceEmulation(DeviceName.BlackBerry_Z30, ScreenOrientation.PORTRAIT);
   configuration.addDeviceEmulation(DeviceName.Pixel_2_XL, ScreenOrientation.PORTRAIT);
-
 
   // Set the configuration object to eyes
   eyes.setConfiguration(configuration);
@@ -72,8 +71,21 @@ async function runTest(url, runner) {
     // Navigate to the URL we want to test
     await webDriver.get(url);
 
+    // Call Open on eyes to initialize a test session
+    await eyes.open(webDriver);
+
     if (await testSelector.clickElement) {
       await webDriver.findElement(By.css(testSelector.clickElement)).click();
+      // let windowWidth = await webDriver.manage().window().getSize;
+      // if (await webDriver.manage().window().innerWidth < 600) {
+      //   
+      // }
+      // console.log(windowWidth);
+      if (await (await webDriver.findElement(By.css(testSelector.clickElement))).isDisplayed) {
+        await webDriver.findElement(By.css(testSelector.clickElement)).click();
+
+      }
+
     }
     //Mouseover on an element
     if (await testSelector.hoverElement) {
@@ -82,15 +94,12 @@ async function runTest(url, runner) {
       await webDriver.actions().move({origin: elem}).perform(); 
     }
 
-    // Call Open on eyes to initialize a test session
-    await eyes.open(webDriver);
-
     // Check the page or a selector
     if (testSelector.checkSelector) {
       await eyes.check(testSelector.testName + " " + url, Target.region(By.css(testSelector.checkSelector), null));
     }
     else {
-      await eyes.check('testSelector.testName ' + url, Target.window());
+      await eyes.check('testSelector.testName ' + url, Target.window().fully());
     }
 
     // Close eyes asynchronously

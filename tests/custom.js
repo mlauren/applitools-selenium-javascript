@@ -132,7 +132,57 @@ const customNamingFormat = [
     url: 'http://cskpcloudxn1713.cloud.kp.org/lauren-dev/form-pattern-STYLGD-4313/',
     appName: "Patterns Library - Forms Pattern",
     viewportWidth: 1000,
-    viewportHeight: 800
+    viewportHeight: 800, 
+    ignoreEls: ["#"]
+  },
+  {
+    testId: 'datepicker-custom',
+    patternName: 'datepicker',
+    url: 'http://localhost:8080/',
+    appName: "Datepicker Pattern",
+    viewportWidth: 1000,
+    viewportHeight: 800,
+    clickElement: "#singlePickerTrigger-3"
+  },
+  {
+    testId: 'footer-test-lauren',
+    patternName: 'footer-pattern',
+    baseUrl: 'https://healthy.kaiserpermanente.org/',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/nancy-dev/footer-pattern/',
+    appName: "Patterns Library",
+    viewportWidth: 1000,
+    viewportHeight: 800,
+    checkSelector: ".kp-footer"
+  },
+  {
+    testId: 'modal-test-lauren',
+    patternName: 'modal-pattern',
+    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/lauren-dev/modal-pattern-3.0/',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/nancy-dev/modal-pattern/full-screen-test.html',
+    appName: "Patterns Library",
+    viewportWidth: 1000,
+    viewportHeight: 800,
+    clickElement: "#fullscreen-modal-open-no-bar"
+  },
+  {
+    testId: 'side-nav-test-lauren',
+    patternName: 'side-nav-pattern',
+    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/patterns-library/demos/side-navigation-demo2.html',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/manizhah-dev/patterns-library/demos/side-navigation-demo2.html',
+    appName: "Patterns Library",
+    viewportWidth: 1000,
+    viewportHeight: 800,
+    // clickElement: "#fullscreen-modal-open-no-bar"
+  },
+  {
+    testId: 'nav-tray-mobile-test',
+    patternName: 'nav-tray',
+    baseUrl: 'http://cskpcloudxn1713.cloud.kp.org/lauren-dev/nav-tray-1.0/',
+    url: 'http://cskpcloudxn1713.cloud.kp.org/lauren-dev/nav-tray/',
+    appName: "Patterns Library",
+    viewportWidth: 525,
+    viewportHeight: 800,
+    clickElement: "#mobile-menu-open-0"
   }
 ];
 
